@@ -48,9 +48,17 @@ table {
 
 /*
   ========================================
-  Custom styles
+  General
   ========================================
 */
+
+/**,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}*/
 
 body {
   color: white;
@@ -59,20 +67,169 @@ body {
 }
 
 h1 {
-	margin-bottom: 20px;
+  font-size: 36px;
+  margin: 20px 30px 0 40px;
+  display: inline;
+  vertical-align: bottom;
 }
 
-.messageBox {
-	border: 4px solid grey;
-	width: 700px;
-	padding: 10px;
-	margin-bottom: 20px;
-	border-radius: 10px;
+.logo {
+  max-width: 80px;
+  height: auto;
+  padding-top: 20px;
+  vertical-align: bottom;
 }
+
+h3 {
+  margin: 0 50px 30px 0;
+  vertical-align: top;
+  display: block;
+  text-decoration: underline
+}
+
+
+/*
+  ========================================
+  Grid
+  ========================================
+*/
+
+/**,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}*/
+
+.grid {
+  width: 1200px;
+  margin: 0;
+}
+
+.grid,
+.timeline,
+.nav {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.timeline,
+.nav {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.timeline {
+
+}
+
+.nav {
+  float: right;
+  display: inline
+}
+
+/*
+  ========================================
+  Who you're following (inside .nav)
+  ========================================
+*/
+
+.nav-list {
+  text-align: left;
+  padding-right: 30px;
+
+}
+
+.nav-pics {
+  margin-left: 100px;
+  text-align: left;
+}
+
+.following {
+  color: white;
+}
+
+.following img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px 30px 30px 5px;
+}
+
+/*
+  ========================================
+  Tweet Box Structure
+  ========================================
+*/
+
+.messageBox {
+  border: 4px solid grey;
+  padding: 5px;
+  width: 770px;
+  margin: 10px 0 10px 30px;
+  border-radius: 10px;
+}
+
+.messageBox,
+.col-lef,
+.col-right {
+  padding: 5px, 15px, 5px, 15px;
+}
+
+.col-left {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-left: 15px;
+  margin-right: 25px;
+  vertical-align: center;
+}
+
+.col-right {
+  vertical-align: center;
+}
+
+.col-left,
+.col-right {
+  display: inline-block;
+}
+
+/*
+  ========================================
+  Tweets
+  ========================================
+*/
 
 .date {
 	font-size: 14px;
 	color: grey;
+  vertical-align: bottom;
+}
+
+.username, .handle {
+  vertical-align: top;
+  padding-bottom: 20px;
+}
+
+.username {
+  padding-right: 20px;
+  font-weight: 900;
+}
+
+.handle {
+  color: grey;
+  font-weight: 300;
+  display: inline;
+}
+
+.handle:hover { 
+  color: yellow;
+}
+
+.message {
+  padding: 10px 0 10px 0;
+  vertical-align: top;
 }
 
 .highlight {

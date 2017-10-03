@@ -7,48 +7,103 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <h1>Welcome to Twittler!</h1>
-    <script>
+    <h1 class="header">Welcome to Twittler!<img src="single-bird-icon.png" class="logo" data-name="home"></h1>
+    <section class="grid">
+      <div class="nav">
+        <h3>Who You're Following</h3>
 
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
+        <div class = "following">
+          <p class="nav-list">@shawndrost</p><img class="nav-pics" src="user-pics/shawndrost.jpg" data-name="shawndrost">
+          <p class="nav-list">@sharksforcheap</p><img class="nav-pics" src="user-pics/sharksforcheap.jpg" data-name="sharksforcheap"> 
+          <p class="nav-list">@mracus</p><img class="nav-pics" src="user-pics/mracus.jpg" data-name="mracus">
+          <p class="nav-list">@douglascalhoun</p><img class="nav-pics" src="user-pics/douglascalhoun.png" data-name="douglascalhoun"> 
+          <p class="nav-list">Refresh your timeline</p><img class="nav-pics" src="single-bird-icon.png" data-name="home">
+        <div>
+      </div>
+      <div class="timeline">
+      <script>
 
+        $(document).ready(function(){
+          var $body = $('body');
 
+          function clearTimeline() {
+            $('.messageBox').remove();
+          }
 
-        var index = streams.home.length - 1;
+          function printTweets(user) {
+            clearTimeline();
 
-        function clearTimeline() {
-          $('.messageBox').remove();
-        }
+            var feed = [];
 
-        function printTweets(user, num) {
-          clearTimeline();
+            if (user === 'home') {
+              feed = streams.home;
+            } else {
+              feed = streams.users[user];
+            }
 
-          for (var i = 0; i < num; i++){
+            var index = feed.length - 1;
+            while(index >= 0){
+              var tweet = feed[index];
+
+              var $messageBox = $('<div class="messageBox"></div>');
+              // $('div').data('name', tweet.user);
+              // var $picture = '<img class="col-left" id="profile">';
+              $(tweet.pic).appendTo($messageBox);
+              // $('#profile').attr('src', 'user-pics/' + tweet.pic);
+              // $('#profile').remove();
+              var $tweet = $('<div class="col-right"></div>');
+              var $username = $('<span class="username"></span>');
+              $username.text(tweet.name);
+              $username.appendTo($tweet);
+              var $handle = $('<a class="handle"></a>');
+              $('a').closest('.messageBox').data('name', tweet.user);
+              $handle.text('     @' + tweet.user);
+              $handle.appendTo($tweet);
+              var $message = $('<p class="message"></p>');
+              $message.text(tweet.message);
+              $message.appendTo($tweet);
+              var $date = $('<p class="date"></p>');
+              $date.text(tweet.created_at);
+              $date.appendTo($tweet);
+              $tweet.appendTo($messageBox);
+              $messageBox.appendTo($body);
+
+              index -= 1;
+            }
 
           }
-        }
 
+          printTweets('home');
 
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="messageBox"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          var $date = $('<p class="date"></p>');
-          $date.text(tweet.created_at);
-          $date.appendTo($tweet);
-          $tweet.appendTo($body);
+          // setTimeout(function () {
+          //   printTweets('mracus');
+          // }, 1500);
 
-          index -= 1;
-        }
+          // var index = streams.home.length - 1;
+          // while(index >= 0){
+          //   var tweet = streams.home[index];
+          //   var $tweet = $('<div class="messageBox"></div>');
+          //   $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          //   var $date = $('<p class="date"></p>');
+          //   $date.text(tweet.created_at);
+          //   $date.appendTo($tweet);
+          //   $tweet.appendTo($body);
 
-        // setTimeout(function () {
-        //   clearTimeline();
-        // }, 1000);
+          //   index -= 1;
+          // }
 
-      });
+          $('img').on('click',function(){
+            var person = $(this).data('name');
+            printTweets(person);
 
-    </script>
+          });
+
+        });
+
+      </script>
+    </div>
+  </section>
   </body>
 </html>
+
+

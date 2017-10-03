@@ -43,6 +43,37 @@ var generateRandomTweet = function(){
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
   tweet.created_at = new Date();
+  tweet.name;
+  tweet.pic ;
+
+  if (tweet.user === 'shawndrost') {
+    tweet.name = 'Shawn Drost';
+    tweet.pic = '<img class="col-left" src="user-pics/shawndrost.jpg">';
+  } else if (tweet.user === 'sharksforcheap') {
+    tweet.name = 'Sharks 4 Cheap';
+    tweet.pic = '<img class="col-left" src="user-pics/sharksforcheap.jpg">';
+  } else if (tweet.user === 'mracus') {
+    tweet.name = 'Mister Acus';
+    tweet.pic = '<img class="col-left" src="user-pics/mracus.jpg">';
+  } else if (tweet.user === 'douglascalhoun') {
+    tweet.name = 'Doug Calhoun';
+    tweet.pic = '<img class="col-left" src="user-pics/douglascalhoun.png">';
+  }
+
+  //   if (tweet.user === 'shawndrost') {
+  //   tweet.name = 'Shawn Drost';
+  //   tweet.pic = 'user-pics/shawndrost.jpg';
+  // } else if (tweet.user === 'sharksforcheap') {
+  //   tweet.name = 'Sharks 4 Cheap';
+  //   tweet.pic = 'ser-pics/sharksforcheap.jpg';
+  // } else if (tweet.user === 'mracus') {
+  //   tweet.name = 'Mister Acus';
+  //   tweet.pic = 'ser-pics/mracus.jpg';
+  // } else if (tweet.user === 'douglascalhoun') {
+  //   tweet.name = 'Doug Calhoun';
+  //   tweet.pic = 'ser-pics/douglascalhoun.png';
+  // }
+
   addTweet(tweet);
 };
 
